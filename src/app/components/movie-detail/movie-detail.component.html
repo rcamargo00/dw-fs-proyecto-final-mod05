@@ -1,0 +1,35 @@
+<p>movie-detail works!</p>
+<div *ngIf="movie" class="movie-detail-container">
+  <div class="movie-header">
+    <img [src]="movie.image" [alt]="movie.title" class="movie-poster">
+    <div class="movie-info">
+      <h2 class="movie-title">{{ movie.title }}</h2>
+      <p class="movie-year">({{ movie.year }})</p>
+      <div class="movie-rating-large">
+        <span class="rating-icon-large">⭐</span>
+        <span class="rating-value">{{ movie.rating }}</span>
+        <span class="rating-max">/ 5</span>
+      </div>
+    </div>
+  </div> 
+  
+  <div class="movie-body">
+    <div class="synopsis-section">
+      <h3>Sinopsis</h3>
+      <p class="synopsis">{{ movie.synopsis }}</p>
+    </div>
+
+    <div class="comments-section">
+      <h3>Comentarios</h3>
+      <div *ngIf="movie.comments && movie.comments.length > 0; else noComments" class="comments-list">
+        <div *ngFor="let comment of movie.comments" class="comment">
+          <p class="comment-user"><strong>{{ comment.user }}</strong></p>
+          <p class="comment-text">"{{ comment.text }}"</p>
+        </div>
+      </div>
+      <ng-template #noComments>
+        <p class="no-comments">Aún no hay comentarios para esta película.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

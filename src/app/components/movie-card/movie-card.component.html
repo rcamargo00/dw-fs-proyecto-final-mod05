@@ -1,0 +1,13 @@
+<div class="movie-card">
+  <img [src]="movie.image" [alt]="movie.title" class="movie-image">
+  <div class="movie-info">
+    <h3 class="movie-title">{{ movie.title }}</h3>
+    <div class="movie-meta">
+      <span class="movie-rating">
+        <span class="rating-icon">⭐</span> {{ movie.rating }} / 5
+      </span>
+      <span class="movie-year">({{ movie.year }})</span>
+    </div>
+    <a [routerLink]="['/movie', movie.id]" class="view-button">Ver Detalles</a>
+  </div>
+</div>
